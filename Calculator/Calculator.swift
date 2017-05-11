@@ -19,7 +19,7 @@ class Calculator {
     
     // MARK: Method(s) a.k.a. Function(s)
     func addToNewValue(digit : String) {
-               providedValue = providedValue + digit
+        providedValue = providedValue + digit
     }
     
     /**
@@ -35,9 +35,9 @@ class Calculator {
     
     
     /* sets the operation to addition and computes new value.
- */
+     */
     func add() {
-    
+        
         //set the operation
         operation = Operation.addition
         
@@ -53,7 +53,7 @@ class Calculator {
         
         updateState()
     }
-
+    
     
     /**
      Sets calculator operation to division, and computes a new value, if needed.
@@ -75,7 +75,7 @@ class Calculator {
         
         updateState()
     }
-
+    
     /* sets the operation to plusminus and computes new value.
      */
     func plusMinus() {
@@ -85,7 +85,7 @@ class Calculator {
         
         updateState()
     }
-
+    
     /**
      Updates calculator state.
      
@@ -116,7 +116,7 @@ class Calculator {
                 // 2. When in this branch, a new provided value has been given.
                 
                 // So, perform the operation!
-                equals()    
+                equals()
             }
             
         }
@@ -139,10 +139,17 @@ class Calculator {
             computedValue = computedValue! + Double(providedValue)!
         } else if operation == Operation.subtraction {
             computedValue = computedValue! - Double(providedValue)!
-        } else if operation == Operation.percentage { computedValue = computedValue! / 100
-        } else if operation == Operation.plusMinus { computedValue = computedValue! * -1
+        } else if operation == Operation.percentage { if computedValue != nil { computedValue = computedValue! / 100
+        } else {
+            computedValue = 0
+            }
+        } else if operation == Operation.plusMinus  { if computedValue != nil {
+            computedValue = computedValue! * -1
+        } else {
+            computedValue = 0
+            }
         }
-    
+        
         
         // The operation selected has been performed, so get ready to receive new operation
         // and new value
