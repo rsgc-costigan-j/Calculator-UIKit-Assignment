@@ -79,11 +79,22 @@ class Calculator {
     /* sets the operation to plusminus and computes new value.
      */
     func plusMinus() {
-        
+        // detect state
+        if providedValue == "" && computedValue != nil {
+            //storing statement in variable
+            computedValue = computedValue! * -1
+        } else {
+            if var temp = Double(providedValue) {
+                //make negaqtive
+                temp = temp * -1
+                //return temp to provided value
+                providedValue = String(format: "%g", temp)
+            }
+        }
         //set the operation
-        operation = Operation.plusMinus
         
-        updateState()
+        
+    
     }
     
     /**
@@ -143,13 +154,7 @@ class Calculator {
         } else {
             computedValue = 0
             }
-        } else if operation == Operation.plusMinus  { if computedValue != nil {
-            computedValue = computedValue! * -1
-        } else {
-            computedValue = 0
-            }
         }
-        
         
         // The operation selected has been performed, so get ready to receive new operation
         // and new value

@@ -125,13 +125,11 @@ class ViewController: UIViewController {
 
     @IBAction func plusMinus(_ sender: Any) {
         model.plusMinus()
-        model.equals()
-        if model.computedValue != nil {
-            labelDisplay.text = String(format: "%g", model.computedValue!)
+        labelDisplay.text = model.providedValue
         }
-    
-    }
+
 }
-    
+
+
 
 
