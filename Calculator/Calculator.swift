@@ -143,10 +143,18 @@ class Calculator {
     func equals() {
         
         // Check operation type
-        if operation == Operation.multiplication {
+        if operation == Operation.multiplication { if computedValue != nil {
             computedValue = computedValue! * Double(providedValue)!
-        } else if operation == Operation.division {
+        } else {
+            computedValue = nil
+            }
+            
+        } else if operation == Operation.division { if computedValue != nil {
             computedValue = computedValue! / Double(providedValue)!
+        } else {
+            computedValue = nil
+            }
+            
             
         } else if operation == Operation.addition { if computedValue != nil {
             computedValue = computedValue! + Double(providedValue)!
@@ -154,11 +162,13 @@ class Calculator {
             computedValue = nil
             }
             
+            
         } else if operation == Operation.subtraction { if computedValue != nil {
             computedValue = computedValue! - Double(providedValue)!
         } else {
             computedValue = nil
             }
+            
             
         } else if operation == Operation.percentage { if computedValue != nil { computedValue = computedValue! / 100
         } else {
