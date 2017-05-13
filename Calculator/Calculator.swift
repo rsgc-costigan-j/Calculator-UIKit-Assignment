@@ -83,6 +83,7 @@ class Calculator {
         if providedValue == "" && computedValue != nil {
             //storing statement in variable
             computedValue = computedValue! * -1
+            
         } else {
             if var temp = Double(providedValue) {
                 //make negaqtive

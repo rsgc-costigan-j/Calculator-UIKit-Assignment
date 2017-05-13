@@ -9,11 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     //This is a connection to the label in the view
     @IBOutlet weak var labelDisplay: UILabel!
     
-   //Create an instance (object) of the calculator class
+    //Create an instance (object) of the calculator class
     var model = Calculator()
     
     
@@ -23,17 +23,17 @@ class ViewController: UIViewController {
         labelDisplay.text = ""
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func onePressed(_ sender: Any) {
         model.addToNewValue(digit: "1")
         labelDisplay.text = model.providedValue
     }
-
+    
     @IBAction func twoPressed(_ sender: Any) {
         model.addToNewValue(digit: "2")
         labelDisplay.text = model.providedValue
@@ -97,7 +97,6 @@ class ViewController: UIViewController {
     
     @IBAction func Decimal(_ sender: Any) {
         model.addToNewValue(digit: ".")
-    
     }
     
     @IBAction func Percentage(_ sender: Any) {
@@ -106,7 +105,7 @@ class ViewController: UIViewController {
         if model.computedValue != nil {
             labelDisplay.text = String(format: "%g", model.computedValue!)
         }
-
+        
     }
     
     
@@ -122,14 +121,16 @@ class ViewController: UIViewController {
         }
         
     }
-
+    
     @IBAction func plusMinus(_ sender: Any) {
         model.plusMinus()
-        labelDisplay.text = model.providedValue
+        if model.computedValue != nil {
+            labelDisplay.text = String(format: "%g", model.computedValue!)
+        }else {labelDisplay.text = model.providedValue
+            
         }
-
+    }
 }
-
 
 
 
