@@ -147,10 +147,19 @@ class Calculator {
             computedValue = computedValue! * Double(providedValue)!
         } else if operation == Operation.division {
             computedValue = computedValue! / Double(providedValue)!
-        } else if operation == Operation.addition {
+            
+        } else if operation == Operation.addition { if computedValue != nil {
             computedValue = computedValue! + Double(providedValue)!
-        } else if operation == Operation.subtraction {
+        } else {
+            computedValue = nil
+            }
+            
+        } else if operation == Operation.subtraction { if computedValue != nil {
             computedValue = computedValue! - Double(providedValue)!
+        } else {
+            computedValue = nil
+            }
+            
         } else if operation == Operation.percentage { if computedValue != nil { computedValue = computedValue! / 100
         } else {
             computedValue = 0

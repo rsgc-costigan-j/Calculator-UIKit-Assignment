@@ -97,6 +97,7 @@ class ViewController: UIViewController {
     
     @IBAction func Decimal(_ sender: Any) {
         model.addToNewValue(digit: ".")
+        labelDisplay.text = model.providedValue
     }
     
     @IBAction func Percentage(_ sender: Any) {
