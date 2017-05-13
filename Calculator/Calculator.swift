@@ -80,10 +80,13 @@ class Calculator {
      */
     func plusMinus() {
         // detect state
+        // if provided value is empty and computed value is not, then it will make the computed value negative.
         if providedValue == "" && computedValue != nil {
             //storing statement in variable
             computedValue = computedValue! * -1
             
+        //this will run if the provided value is present and the computed value is nil.
+        // it makes the provided value negative
         } else {
             if var temp = Double(providedValue) {
                 //make negaqtive
@@ -143,33 +146,35 @@ class Calculator {
     func equals() {
         
         // Check operation type
+        //runs multiplcation operation and makes sure that it is not force unwrapping a nil
         if operation == Operation.multiplication { if computedValue != nil {
             computedValue = computedValue! * Double(providedValue)!
         } else {
             computedValue = nil
             }
             
+            //runs division operation and makes sure that it is not force unwrapping a nil
         } else if operation == Operation.division { if computedValue != nil {
             computedValue = computedValue! / Double(providedValue)!
         } else {
             computedValue = nil
             }
             
-            
+            //runs addition operation and makes sure that it is not force unwrapping a nil
         } else if operation == Operation.addition { if computedValue != nil {
             computedValue = computedValue! + Double(providedValue)!
         } else {
             computedValue = nil
             }
             
-            
+            //runs subtraction operation and makes sure that it is not force unwrapping a nil
         } else if operation == Operation.subtraction { if computedValue != nil {
             computedValue = computedValue! - Double(providedValue)!
         } else {
             computedValue = nil
             }
             
-            
+            //runs percentage operation and makes sure that it is not force unwrapping a nil
         } else if operation == Operation.percentage { if computedValue != nil { computedValue = computedValue! / 100
         } else {
             computedValue = 0
